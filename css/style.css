@@ -5,21 +5,68 @@
 	box-sizing: border-box;
 	font-size: 24px;
 }
-
+:root {
+	/* Backgrounds */
+	--main-color: hsl(222, 26%, 31%);
+	--keypad-background: hsl(223, 31%, 20%);
+	--screen-background: hsl(224, 36%, 15%);
+	/* Keys */
+	--key-background: hsl(225, 21%, 49%);
+	--key-shadow: hsl(224, 28%, 35%);
+	--key-background-2: hsl(6, 63%, 50%);
+	--key-shadow-2: hsl(6, 70%, 34%);
+	--key-background-3: hsl(30, 25%, 89%);
+	--key-shadow-3: hsl(28, 16%, 65%);
+	/* Text */
+	--text-1: hsl(221, 14%, 31%);
+	--text-2: rgb(255, 255, 255);
+}
+body.theme-2 {
+	/* Backgrounds */
+	--main-color: hsl(0, 0%, 90%);
+	--keypad-background: hsl(0, 5%, 81%);
+	--screen-background: hsl(0, 0%, 93%);
+	/* Keys */
+	--key-background: hsl(185, 42%, 37%);
+	--key-shadow: hsl(185, 58%, 25%);
+	--key-background-2: hsl(25, 98%, 40%);
+	--key-shadow-2: hsl(25, 99%, 27%);
+	--key-background-3: hsl(45, 7%, 89%);
+	--key-shadow-3: hsl(35, 11%, 61%);
+	/* Text */
+	--text-1: hsl(60, 10%, 19%);
+	--text-2: rgb(255, 255, 255);
+	--text-3-theme: hsl(60, 10%, 19%);
+}
+body.theme-3 {
+	/* Backgrounds */
+	--main-color: hsl(268, 75%, 9%);
+	--keypad-background: hsl(268, 71%, 12%);
+	--screen-background: hsl(268, 71%, 12%);
+	/* Keys */
+	--key-background: hsl(281, 89%, 26%);
+	--key-shadow: hsl(285, 91%, 52%);
+	--key-background-2: hsl(176, 100%, 44%);
+	--key-shadow-2: hsl(177, 92%, 70%);
+	--key-background-3: hsl(268, 47%, 21%);
+	--key-shadow-3: hsl(290, 70%, 36%);
+	/* Text */
+	--text-1: hsl(52, 100%, 62%);
+	--text-2: rgb(255, 255, 255);
+	--text-3-theme: hsl(52, 100%, 62%);
+}
 html {
 	width: 100%;
 	height: 100%;
 }
-
 .body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	width: 100%;
 	height: 100%;
-	background-color: hsl(225, 21%, 49%);
+	background-color: var(--main-color);
 }
-
 .calculator {
 	width: 100%;
 	max-width: 450px;
@@ -30,14 +77,12 @@ html {
 	grid-template-columns: repeat(2, 1fr);
 	grid-template-rows: repeat(6, 1fr);
 	gap: 20px;
-	color: rgb(255, 255, 255);
+	color: var(--text-2);
 }
-
 .result-p {
 	text-align: end;
 	overflow-x: auto;
 }
-
 .theme {
 	display: grid;
 	margin-top: 10px;
@@ -45,7 +90,6 @@ html {
 	grid-template-rows: repeat(2, 1fr);
 	grid-template-areas: 'none list' 'theme-p theme-section';
 }
-
 .theme-p {
 	grid-area: theme-p;
 	display: flex;
@@ -53,13 +97,13 @@ html {
 	padding-bottom: 5px;
 	width: 100%;
 }
-
 .theme-p p {
+	color: var(--text-3-theme-3);
 	font-size: 13px;
 	text-align: end;
 	width: 100%;
+	color: var(--text-3-theme);
 }
-
 .theme-num {
 	list-style: none;
 	grid-area: list;
@@ -69,32 +113,29 @@ html {
 	justify-content: flex-end;
 	align-items: flex-end;
 }
-
 .theme-num > li {
+	color: var(--text-3-theme);
 	font-size: 14px;
 	padding: 0 5px;
 }
-
 .theme-section {
 	width: 60px;
 	height: 23px;
 	display: flex;
 	margin-left: 38px;
-	background-color: hsl(223, 31%, 20%);
+	background-color: var(--keypad-background);
 	border-radius: 10px;
 	grid-area: theme-section;
 }
-
 .circle-option {
 	width: 17px;
 	height: 17px;
 	position: absolute;
 	border-radius: 50%;
-	background-color: hsl(6, 63%, 50%);
+	background-color: var(--key-background-2);
 	margin: 3px;
 	transition: all 0.3s ease;
 }
-
 .option1,
 .option2,
 .option3 {
@@ -102,73 +143,69 @@ html {
 	width: 18px;
 	background-color: transparent;
 }
-
 .h3 {
 	font-size: 28px;
 	padding-top: 25px;
+	color: var(--text-3-theme);
 }
-
 .result {
 	grid-column: 1/3;
 	grid-row: 2/3;
 	border-radius: 10px;
 	padding: 20px;
+	color: var(--text-3-theme);
 
-	background-color: hsl(224, 36%, 15%);
+	background-color: var(--screen-background);
 }
-
 .keys {
 	grid-column: 1/3;
 	grid-row: 3/7;
 	border-radius: 10px;
 	padding: 20px;
-	background-color: hsl(223, 31%, 20%);
+	background-color: var(--keypad-background);
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
 	grid-template-rows: repeat(5, 1fr);
-
 	gap: 13px 10px;
 }
-
 .key {
 	-webkit-touch-callout: none; /* iOS Safari */
 	-webkit-user-select: none; /* Chrome/Safari/Opera */
 	-moz-user-select: none; /* Firefox */
-	user-select: none; /* Non-prefixed version, currently supported by any browser but < IE9 */
-
+	user-select: none;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	padding-top: 3px;
 	border-radius: 5px;
-	color: hsl(223, 31%, 20%);
-	box-shadow: 0px 3px 0px 0px hsl(28, 16%, 65%);
-	background-color: hsl(30, 25%, 89%);
+	color: var(--text-1);
+	box-shadow: 0px 3px 0px 0px var(--key-shadow-3);
+	background-color: var(--key-background-3);
 	transition: all 0.1s ease-in;
 	cursor: pointer;
 }
-
 .key:active {
 	transform: translateY(3px);
-	box-shadow: 0px 0px 0px 0px hsl(28, 16%, 65%);
+	box-shadow: 0px 0px 0px 0px var(--key-shadow-3);
 }
-
 .keyreset,
 .keydel {
-	background-color: hsl(225, 21%, 49%);
-	color: rgb(255, 255, 255);
+	background-color: var(--key-background);
+	color: var(--text-2);
 	font-size: 16px;
-	box-shadow: 0px 3px 0px 0px hsl(224, 28%, 35%);
+	box-shadow: 0px 3px 0px 0px var(--key-shadow);
 }
-
 .keyreset {
 	grid-column: 1/3;
 }
-
 .keyresult {
 	grid-column: 3/5;
-	color: rgb(255, 255, 255);
-
-	background-color: hsl(6, 63%, 50%);
-	box-shadow: 0px 3px 0px 0px hsl(6, 70%, 34%);
+	color: var(--text-2);
+	background-color: var(--key-background-2);
+	box-shadow: 0px 3px 0px 0px var(--key-shadow-2);
+}
+@media screen and (min-width: 720px) {
+	.keys {
+		gap: 16px 13px;
+	}
 }
